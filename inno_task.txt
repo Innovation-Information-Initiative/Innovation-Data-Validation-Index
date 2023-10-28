@@ -1,0 +1,59 @@
+citation extraction
+name disambiguation
+patent classification
+name disambiguation
+firm matching
+citation extraction
+name disambiguation
+localisation
+localisation
+name disambiguation
+name disambiguation
+gender estimation
+product identification
+name disambiguation
+name disambiguation
+firm matching
+firm matching
+patent similarity
+scope estimation
+citation provenance
+patent family analysis
+citation extraction
+geocoding
+keyword extraction
+patent similarity
+name disambiguation
+gender estimation
+age estimation
+patent classification
+geocoding
+geocoding
+geocoding
+name disambiguation
+firm matching
+geocoding
+patent pairs
+patent similarity
+citation analysis
+patent classification
+patent similarity
+dependency
+scope estimation
+name disambiguation
+geocoding
+novelty
+entity extraction
+innovation measurement
+patent similarity
+keyword extraction
+patent similarity
+patent classification
+firm matching
+patent similarity
+name disambiguation
+patent classification
+financial market analysis
+patent identification
+patent classification
+semantic analysis
