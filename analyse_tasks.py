@@ -1,68 +1,37 @@
 import collections
 import json
+import pandas as pd
 
 inno_tasks = []
 ml_tasks = []
 
-for line in open('inno_task.txt', 'r').readlines():
-	inno_tasks.append(line.strip())
+df = pd.read_csv('index_terms_list.csv')
+df['innovation data task'] = df['innovation data task'].str.split(',')
+df['ML task'] = df['ML task'].str.split(',')
 
 
-for line in open('ml_task.txt', 'r').readlines():
-	ml_tasks.append(line.strip())
+
+df_inno = df.explode(['innovation data task']).reset_index(drop=True)
+df_inno['innovation data task'] = df_inno['innovation data task'].str.strip()
 
 
-inno_counter = collections.Counter(inno_tasks)
-ml_counter = collections.Counter(ml_tasks)
-
-print(json.dumps({k: v for k, v in sorted(inno_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
-print(json.dumps({k: v for k, v in sorted(ml_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
+df_ml = df.explode(['ML task']).reset_index(drop=True)
+df_ml['ML task'] = df_ml['ML task'].str.strip()
 
 
-# print(json.dumps(inno_counter, indent=2), '\n', json.dumps(ml_counter, indent=2))
+print(df_inno['innovation data task'].value_counts())
+print(df_ml['ML task'].value_counts())
 
-# ml_terms = list(set(ml_tasks))
-# inno_terms = list(set(inno_tasks))
-
-# print(ml_terms, inno_terms)
+# for line in open('inno_task.txt', 'r').readlines():
+# 	inno_tasks.append(line.strip())
 
 
-# {
-#   "name disambiguation": 11,
-#   "patent similarity": 7,
-#   "geocoding": 6,
-#   "firm matching": 5,
-#   "citation extraction": 3,
-#   "classification": 3,
-#   "localisation": 2,
-#   "gender estimation": 2,
-#   "scope estimation": 2,
-#   "keyword extraction": 2,
-#   "patent classification": 2,
-#   "CPC classification": 1,
-#   "product identification": 1,
-#   "citation provenance": 1,
-#   "patent family analysis": 1,
-#   "age estimation": 1,
-#   "patent pairs": 1,
-#   "citation analysis": 1,
-#   "dependency": 1,
-#   "novelty": 1,
-#   "entity extraction": 1,
-#   "innovation measurement": 1,
-#   "financial market analysis": 1,
-#   "patent identification": 1,
-#   "semantic analysis": 1
-# }
-# {
-#   "similarity": 6,
-#   "semantic analysis": 6,
-#   "matching": 3,
-#   "classification": 3,
-#   "text retrieval": 2,
-#   "summarisation": 2,
-#   "parsing": 1,
-#   "entity extraction": 1,
-#   "labelling": 1,
-#   "sentiment analysis": 1
-# }
+# for line in open('ml_task.txt', 'r').readlines():
+# 	ml_tasks.append(line.strip())
+
+
+# inno_counter = collections.Counter(inno_tasks)
+# ml_counter = collections.Counter(ml_tasks)
+
+# print(json.dumps({k: v for k, v in sorted(inno_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
+# print(json.dumps({k: v for k, v in sorted(ml_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
