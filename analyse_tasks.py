@@ -21,17 +21,3 @@ df_ml['ML task'] = df_ml['ML task'].str.strip()
 
 print(df_inno['innovation data task'].value_counts())
 print(df_ml['ML task'].value_counts())
-
-# for line in open('inno_task.txt', 'r').readlines():
-# 	inno_tasks.append(line.strip())
-
-
-# for line in open('ml_task.txt', 'r').readlines():
-# 	ml_tasks.append(line.strip())
-
-
-# inno_counter = collections.Counter(inno_tasks)
-# ml_counter = collections.Counter(ml_tasks)
-
-# print(json.dumps({k: v for k, v in sorted(inno_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
-# print(json.dumps({k: v for k, v in sorted(ml_counter.items(), key=lambda item: item[1], reverse=True)}, indent=2))
